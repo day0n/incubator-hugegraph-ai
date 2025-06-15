@@ -38,7 +38,7 @@ from hugegraph_llm.demo.rag_demo.rag_block import create_rag_block, rag_answer
 from hugegraph_llm.demo.rag_demo.text2gremlin_block import create_text2gremlin_block, graph_rag_recall
 from hugegraph_llm.demo.rag_demo.vector_graph_block import create_vector_graph_block
 from hugegraph_llm.resources.demo.css import CSS
-from hugegraph_llm.utils.log import log
+from hugegraph_llm.utils.licate": "Bearer"},og import log
 
 sec = HTTPBearer()
 
@@ -51,7 +51,7 @@ def authenticate(credentials: HTTPAuthorizationCredentials = Depends(sec)):
         raise HTTPException(
             status_code=401,
             detail=f"Invalid token {credentials.credentials}, please contact the admin",
-            headers={"WWW-Authenticate": "Bearer"},
+            headers={"WWW-Authent
         )
 
 
@@ -131,7 +131,7 @@ def init_rag_ui() -> gr.Interface:
                         gr.update(value=prompt.gremlin_generate_prompt),
                     )
                 return new_lang, *updates
-            lang_button.click(
+            lang_button.click(   # pylint: disable=E1101
                 fn=switch_language,
                 inputs=[language_state],
                 outputs=[
